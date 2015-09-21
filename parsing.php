@@ -2,6 +2,13 @@
 
 	function parsing($str)
 	{
+		$eq = array();
+		$eq['degree'] = 0;
+		$eq['a'] = NULL;
+		$eq['b'] = NULL;
+		$eq['c'] = NULL;
+		$eq['delta'] = 0;
+
 		$str = str_replace(' ', '', $str);
 		$str = str_replace('+', '|+', $str);
 		$str = str_replace('-', '|-', $str);
@@ -39,6 +46,9 @@
 				$coef = preg_replace('/X\^([0-9]+)/', '', $elem);
 				$coef = str_replace('*', '', $coef);
 				
+				if ($degree[1] > $eq['degree'])
+					$eq['degree'] = $degree[1];
+
 				switch ($degree[1])
 				{
 					case '2':

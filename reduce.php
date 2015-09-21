@@ -2,7 +2,7 @@
 
 	function print_reduce($eq)
 	{
-		echo 'Reduced form: ';
+		echo "\n" . 'Reduced form: ';
 	
 		if (isset($eq['a']))
 			$str = $eq['a'] . ' * X^2 ';
@@ -28,12 +28,9 @@
 	
 		echo 'Polynomial degree: ' . $eq['degree'] . "\n";
 
-		if (isset($eq['a']))
-			echo 'a = ' . $eq['a'] . ' | ';
-		if (isset($eq['b']))
-			echo 'b = ' . $eq['b'] . ' | ';
-		if (isset($eq['c']))
-			echo 'c = ' . $eq['c'] . "\n";
+		echo 'a = ' . $eq['a'] . ' | ';
+		echo 'b = ' . $eq['b'] . ' | ';
+		echo 'c = ' . $eq['c'] . "\n\n";
 
 		return ($eq);
 	}
