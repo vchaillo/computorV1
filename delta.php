@@ -5,8 +5,7 @@
 		echo 'Δ = b² - 4ac' . "\n";
 		echo 'Δ = (' . $eq['b'] . ')² - 4 * ' . $eq['a'] . ' * ' . $eq['c'] . "\n";
 
-		$tmp = 4 * $eq['a'] * $eq['c'];
-		$d = $eq['b'] * $eq['b'] - $tmp;
+		$d = $eq['b'] * $eq['b'] - (4 * $eq['a'] * $eq['c']);
 		$eq['delta'] = $d;
 
 		echo 'Δ = ' . $d . "\n\n";

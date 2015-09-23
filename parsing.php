@@ -17,11 +17,11 @@
 		$l = explode('|', $l);
 		foreach($l as $elem)
 		{
-			if (preg_match('/X\^([0-9]+)/', $elem, $degree))
-				$coef = preg_replace('/X\^([0-9]+)/', '', $elem);
+			if (preg_match('/[Xx]\^([0-9]+)/', $elem, $degree))
+				$coef = preg_replace('/[Xx]\^([0-9]+)/', '', $elem);
 				$coef = str_replace('*', '', $coef);
 
-				if ($degree[1] > $eq['degree'])
+				if ($degree[1] > $eq['degree'] && $coef != '0')
 					$eq['degree'] = $degree[1];
 					
 				switch ($degree[1])
@@ -42,11 +42,11 @@
 		$r = explode('|', $r);
 		foreach($r as $elem)
 		{
-			if (preg_match('/X\^([0-9]+)/', $elem, $degree))
-				$coef = preg_replace('/X\^([0-9]+)/', '', $elem);
+			if (preg_match('/[Xx]\^([0-9]+)/', $elem, $degree))
+				$coef = preg_replace('/[Xx]\^([0-9]+)/', '', $elem);
 				$coef = str_replace('*', '', $coef);
 				
-				if ($degree[1] > $eq['degree'])
+				if ($degree[1] > $eq['degree'] && $coef != '0')
 					$eq['degree'] = $degree[1];
 
 				switch ($degree[1])

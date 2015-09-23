@@ -3,19 +3,20 @@
 	function print_reduce($eq)
 	{
 		echo "\n" . 'Reduced form: ';
-	
-		if (isset($eq['a']))
+
+		$str = '';
+		if (isset($eq['a']) && $eq['a'] != 0)
 			$str = $eq['a'] . ' * X^2 ';
 		else
 			$eq['a'] = 0;
 
-		if (isset($eq['b']))
-			$str = $str . '+ '  . $eq['b'] . ' * X^1 ';
+		if (isset($eq['b']) && $eq['b'] != 0)
+			$str = $str . '+ '  . $eq['b'] . ' * X ';
 		else
 			$eq['b'] = 0;
 	
-		if (isset($eq['c']))
-			$str = $str . '+ ' . $eq['c'] . ' * X^0';
+		if (isset($eq['c']) && $eq['c'] != 0)
+			$str = $str . '+ ' . $eq['c'];
 		else
 			$eq['c'] = 0;
 
@@ -28,9 +29,12 @@
 	
 		echo 'Polynomial degree: ' . $eq['degree'] . "\n";
 
-		echo 'a = ' . $eq['a'] . ' | ';
-		echo 'b = ' . $eq['b'] . ' | ';
-		echo 'c = ' . $eq['c'] . "\n\n";
+		if ($eq['degree'] == 2)
+		{
+			echo 'a = ' . $eq['a'] . ' | ';
+			echo 'b = ' . $eq['b'] . ' | ';
+			echo 'c = ' . $eq['c'] . "\n\n";
+		}
 
 		return ($eq);
 	}
