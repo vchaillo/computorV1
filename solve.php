@@ -17,7 +17,11 @@
 
 	function solve_deg1($eq)
 	{
+		$x = -$eq['c'] / $eq['b'];
+		$x = round($x, 6);
 
+		echo "\n" . $eq['b'] . ' * X = ' . -$eq['c'] . "\n";
+		echo 'X = ' . $x . "\n\n";
 	}
 
 	function solve_deg2($eq)
@@ -46,6 +50,10 @@
 			$z1i = ($sq_delta / (2 * $eq['a']));
 			$z2r = -$z1r;
 			$z2i = $z1i;
+			$z1r = round($z1r, 6);
+			$z1i = round($z1i, 6);
+			$z2r = round($z2r, 6);
+			$z2i = round($z2i, 6);
 
 			echo 'z1 = b - i√Δ / 2a' . "\n";
 			echo 'z1 = ' . $eq['b'] . ' - i√' . -$eq['delta'] . ' / 2 * ' . $eq['a'] . "\n";
