@@ -6,12 +6,12 @@
 
 		$str = '';
 		if (isset($eq['a']) && $eq['a'] != 0)
-			$str = $eq['a'] . ' * X^2 ';
+			$str = $eq['a'] . ' * x^2 ';
 		else
 			$eq['a'] = 0;
 
 		if (isset($eq['b']) && $eq['b'] != 0)
-			$str = $str . '+ '  . $eq['b'] . ' * X ';
+			$str = $str . '+ '  . $eq['b'] . ' * x ';
 		else
 			$eq['b'] = 0;
 	

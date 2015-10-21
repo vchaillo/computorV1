@@ -16,17 +16,17 @@
 			$eq = get_delta($eq);
 
 		if ($eq['degree'] == 0)
-			errors(1);
+			print_error(1);
 		else if ($eq['degree'] == 1)
 			solve_deg1($eq);
 		else if ($eq['degree'] == 2)
 			solve_deg2($eq);
 		else
-			errors(4);
+			print_error(4);
 	}
 	else if ($argc == 1)
-			errors(2);
+			print_error(2);
 	else
-			errors(3);
+			print_error(3);
 
 ?>
