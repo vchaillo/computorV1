@@ -2,6 +2,8 @@
 
 ####TodoList
 - Parsing pour chaque elem
+- Remplacement des -- par +, des ++ par + et des +- par -
+- Mise en default du parsing
 - Verifier les solutions complexes
 - Recherche de cas particuliers
 - Check correction

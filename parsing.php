@@ -19,13 +19,19 @@
 
 		$l = explode('=', $str)[0];
 		$l = explode('|', $l);
+		print_r($l);
+		if ($l[0] == '')
+			print_error(1);
 		foreach($l as $elem)
 		{
-			echo 'elem_l = ' . $elem . PHP_EOL;
-			if (preg_match('/[Xx]\^([0-9]+)/', $elem, $degree) || $elem == '' || $elem == '+' || $elem == '-')
+			if (preg_match('#[Xx]\^([0-9]+)#', $elem, $degree) || $elem == '+' || $elem == '-' || $elem == '0')
 			{
-				$coef = preg_replace('/[Xx]\^([0-9]+)/', '', $elem);
+				$coef = preg_replace('#[Xx]\^([0-9]+)#', '', $elem);
 				$coef = str_replace('*', '', $coef);
+				if ($coef == '' || $coef == '+')
+					$coef = '1';
+				else if ($coef == '-')
+					$coef = '-1';
 			}
 			else
 				print_error(1);
@@ -49,13 +55,19 @@
 
 		$r = explode('=', $str)[1];
 		$r = explode('|', $r);
+		print_r($r);
+		if ($r[0] == '')
+			print_error(1);
 		foreach($r as $elem)
 		{
-			echo 'elem_r = ' . $elem . PHP_EOL;
-			if (preg_match('/[Xx]\^([0-9]+)/', $elem, $degree) || $elem == '' || $elem == '+' || $elem == '-')
+			if (preg_match('/[Xx]\^([0-9]+)/', $elem, $degree) || $elem == '+' || $elem == '-' || $elem == '0')
 			{
 				$coef = preg_replace('/[Xx]\^([0-9]+)/', '', $elem);
 				$coef = str_replace('*', '', $coef);
+				if ($coef == '' || $coef == '+')
+					$coef = '1';
+				else if ($coef == '-')
+					$coef = '-1';
 			}
 			else
 				print_error(1);
@@ -76,6 +88,7 @@
 					break;
 			}
 		}
+
 		if ($eq['a'] == 0 && $eq['degree'] == 2)
 			$eq['degree']--;
 		if ($eq['b'] == 0 && $eq['degree'] == 1)

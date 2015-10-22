@@ -6,7 +6,7 @@
 
 		$str = '';
 		if (isset($eq['a']) && $eq['a'] != 0)
-			$str = $eq['a'] . ' * x^2 ';
+			$str = $eq['a'] . 'x² ';
 		else
 			$eq['a'] = 0;
 
