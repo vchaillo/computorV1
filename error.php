@@ -11,7 +11,7 @@
 		else if ($er == 3)
 			echo "\033[31m" . 'Too many arguments!' . PHP_EOL;
 		else if ($er == 4)
-			echo "\033[31m" . 'The polynomial degree is strictly greater than 2, I can\' solve' . PHP_EOL;
+			echo "\033[31m" . 'The polynomial degree is strictly greater than 2, I can\'t solve' . PHP_EOL;
 
 
 		echo "\033[0m" . PHP_EOL . 'Exemples :' . PHP_EOL;
