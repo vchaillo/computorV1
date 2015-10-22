@@ -11,12 +11,12 @@
 			$eq['a'] = 0;
 
 		if (isset($eq['b']) && $eq['b'] != 0)
-			$str = $str . '+ '  . $eq['b'] . ' * x ';
+			$str = $str . '+ '  . $eq['b'] . 'x ';
 		else
 			$eq['b'] = 0;
 	
 		if (isset($eq['c']) && $eq['c'] != 0)
-			$str = $str . '+ ' . $eq['c'];
+			$str = $str . '+ ' . $eq['c'] . ' ';
 		else
 			$eq['c'] = 0;
 
@@ -25,6 +25,8 @@
 			$str = substr($str, 2);
 		if ($str[0] == '-' && $str[1] == ' ')
 			$str[1] = '';
+		if ($str[strlen($str) - 1] == ' ')
+			$str = substr($str, 0, strlen($str) - 1);
 		echo $str . ' = 0' . "\n";
 	
 		echo 'Polynomial degree: ' . $eq['degree'] . "\n";

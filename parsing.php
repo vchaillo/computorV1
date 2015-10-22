@@ -10,7 +10,7 @@
 		$eq['delta'] = 0;
 
 		$str = str_replace(' ', '', $str);
-		if (!preg_match('#^[0-9xX\-+*^=]+$#', $str))
+		if (!preg_match('#^[0-9xX\-+.*^=]+$#', $str))
 			print_error(1);
 		if (!preg_match('#=#', $str))
 			print_error(1);
