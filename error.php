@@ -2,10 +2,10 @@
 
 	function print_error($er)
 	{
-		if ($er == 0)
+		echo PHP_EOL;
+
+		if ($er == 1)
 			echo "\033[31m" . 'Syntax error! I can\'t read this equation' . PHP_EOL;
-		else if ($er == 1)
-			echo "\033[31m" . 'Error, this is not an equation!' . PHP_EOL;
 		else if ($er == 2)
 			echo "\033[31m" . 'Missing argument! Give me an equation to solve' . PHP_EOL;
 		else if ($er == 3)
@@ -16,7 +16,7 @@
 
 		echo "\033[0m" . PHP_EOL . 'Exemples :' . PHP_EOL;
 		echo './computor "5 * X^0 + 4 * X^1 - 9.3 * X^2 = 1 * X^0"' . PHP_EOL;
-		echo './computor "5 * X^0 + 4 * X^1 = 4 * X^0"' . PHP_EOL;
+		echo './computor "5 * X^0 + 4 * X^1 = 4 * X^0"' . PHP_EOL . PHP_EOL;
 		exit(0);
 	}
 

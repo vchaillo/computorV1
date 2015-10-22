@@ -14,6 +14,14 @@
 		return ($res);
 	}
 
+	function solve_deg0($eq)
+	{
+		if ($eq['c'] == 0)
+			echo "\n\033[41m\033[1m" . 'Solutions are x = ]-∞, +∞[' . "\033[0m\n\n";
+		else
+			echo "\n\033[41m\033[1m" . 'There is no solution to this equation!' . "\033[0m\n\n";
+	}
+
 	function solve_deg1($eq)
 	{
 		$x = -$eq['c'] / $eq['b'];

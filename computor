@@ -16,7 +16,7 @@
 			$eq = get_delta($eq);
 
 		if ($eq['degree'] == 0)
-			print_error(1);
+			solve_deg0($eq);
 		else if ($eq['degree'] == 1)
 			solve_deg1($eq);
 		else if ($eq['degree'] == 2)

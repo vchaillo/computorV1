@@ -11,12 +11,11 @@
 
 		$str = str_replace(' ', '', $str);
 		if (!preg_match('#^[0-9xX\-+*^=]+$#', $str))
-			print_error(0);
+			print_error(1);
 		if (!preg_match('#=#', $str))
-			print_error(0);
+			print_error(1);
 		$str = str_replace('+', '|+', $str);
 		$str = str_replace('-', '|-', $str);
-		echo 'str = ' . $str . PHP_EOL . PHP_EOL;
 
 		$l = explode('=', $str)[0];
 		$l = explode('|', $l);
@@ -29,23 +28,23 @@
 				$coef = str_replace('*', '', $coef);
 			}
 			else
-				print_error(0);
+				print_error(1);
 
-				if ($degree[1] > $eq['degree'] && $coef != '0')
+			if ($degree[1] > $eq['degree'] && $coef != '0')
 					$eq['degree'] = $degree[1];
 					
-				switch ($degree[1])
-				{
-					case '2':
-						$eq['a'] += floatval($coef);
-						break;
-					case '1':
-						$eq['b'] += floatval($coef);
-						break;
-					case '0':
-						$eq['c'] += floatval($coef);
-						break;
-				}
+			switch ($degree[1])
+			{
+				case '2':
+					$eq['a'] += floatval($coef);
+					break;
+				case '1':
+					$eq['b'] += floatval($coef);
+					break;
+				case '0':
+					$eq['c'] += floatval($coef);
+					break;
+			}
 		}
 
 		$r = explode('=', $str)[1];
@@ -53,26 +52,34 @@
 		foreach($r as $elem)
 		{
 			echo 'elem_r = ' . $elem . PHP_EOL;
-			if (preg_match('/[Xx]\^([0-9]+)/', $elem, $degree))
+			if (preg_match('/[Xx]\^([0-9]+)/', $elem, $degree) || $elem == '' || $elem == '+' || $elem == '-')
+			{
 				$coef = preg_replace('/[Xx]\^([0-9]+)/', '', $elem);
 				$coef = str_replace('*', '', $coef);
+			}
+			else
+				print_error(1);
 				
-				if ($degree[1] > $eq['degree'] && $coef != '0')
-					$eq['degree'] = $degree[1];
+			if ($degree[1] > $eq['degree'] && $coef != '0')
+				$eq['degree'] = $degree[1];
 
-				switch ($degree[1])
-				{
-					case '2':
-						$eq['a'] -= floatval($coef);
-						break;
-					case '1':
-						$eq['b'] -= floatval($coef);
-						break;
-					case '0':
-						$eq['c'] -= floatval($coef);
-						break;
-				}
+			switch ($degree[1])
+			{
+				case '2':
+					$eq['a'] -= floatval($coef);
+					break;
+				case '1':
+					$eq['b'] -= floatval($coef);
+					break;
+				case '0':
+					$eq['c'] -= floatval($coef);
+					break;
+			}
 		}
+		if ($eq['a'] == 0 && $eq['degree'] == 2)
+			$eq['degree']--;
+		if ($eq['b'] == 0 && $eq['degree'] == 1)
+			$eq['degree']--;
 
 		return($eq);
 	}
