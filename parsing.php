@@ -14,19 +14,26 @@
 			print_error(1);
 		if (!preg_match('#=#', $str))
 			print_error(1);
+		if (preg_match('#([xX.*^=])(\1{1,})#', $str))
+			print_error(1);
+		if (preg_match_all('#=#', $str) > 1)
+			print_error(1);
 		$str = str_replace('+', '|+', $str);
 		$str = str_replace('-', '|-', $str);
 
 		$l = explode('=', $str)[0];
 		$l = explode('|', $l);
-		print_r($l);
 		if ($l[0] == '')
 			print_error(1);
 		foreach($l as $elem)
 		{
-			if (preg_match('#[Xx]\^([0-9]+)#', $elem, $degree) || $elem == '+' || $elem == '-' || $elem == '0')
+			if (preg_match('#[Xx]\^([0-9]+)#', $elem, $degree) || preg_match('#[xX]$#', $elem) || preg_match('#^[+\-]?[0-9]*$#', $elem) || $elem == '+' || $elem == '-' || $elem == '0')
 			{
-				$coef = preg_replace('#[Xx]\^([0-9]+)#', '', $elem);
+				if (preg_match('#[xX]$#', $elem))
+					$degree[1] = '1';
+				else if (preg_match('#^[0-9]$#', $elem))
+					$degree[1] = '0';
+				$coef = preg_replace('#[Xx](\^([0-9]+))?#', '', $elem);
 				$coef = str_replace('*', '', $coef);
 				if ($coef == '' || $coef == '+')
 					$coef = '1';
@@ -55,14 +62,17 @@
 
 		$r = explode('=', $str)[1];
 		$r = explode('|', $r);
-		print_r($r);
 		if ($r[0] == '')
 			print_error(1);
 		foreach($r as $elem)
 		{
-			if (preg_match('/[Xx]\^([0-9]+)/', $elem, $degree) || $elem == '+' || $elem == '-' || $elem == '0')
+			if (preg_match('#[Xx]\^([0-9]+)#', $elem, $degree) || preg_match('#[xX]$#', $elem) || preg_match('#^[+\-]?[0-9]*$#', $elem) || $elem == '+' || $elem == '-' || $elem == '0')
 			{
-				$coef = preg_replace('/[Xx]\^([0-9]+)/', '', $elem);
+				if (preg_match('#[xX]$#', $elem))
+					$degree[1] = '1';
+				else if (preg_match('#^[0-9]$#', $elem))
+					$degree[1] = '0';
+				$coef = preg_replace('#[Xx](\^([0-9]+))?#', '', $elem);
 				$coef = str_replace('*', '', $coef);
 				if ($coef == '' || $coef == '+')
 					$coef = '1';
