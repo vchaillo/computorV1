@@ -105,6 +105,7 @@
 			$eq['degree']--;
 
 		#solution de secours
+		echo 'c = ' . $eq['c'] . PHP_EOL;
 		if (preg_match('#E#', $eq['c']))
 			$eq['c'] = 0;
 		

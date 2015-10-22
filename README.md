@@ -11,6 +11,7 @@
 - ./computor "-2.1 - 2= -2.1 - 2"
 - ./computor "-42 + 2.1 = -42 + 2.1"
 - ./computor "5 + 3.3 = 5 + 3.3"
+- Imprimer le type et valeur avant, puis apres calcul??
 
 ####Idees bonus
 - Affichage sous forme de fraction
