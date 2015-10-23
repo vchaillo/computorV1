@@ -10,11 +10,14 @@
 		$eq['delta'] = 0;
 
 		$str = str_replace(' ', '', $str);
+
 		if (!preg_match('#^[0-9xX\-+.*^=]+$#', $str))
 			print_error(1);
-		if (!preg_match('#=#', $str))
+		if (preg_match('#([xX.+\-*^=])(\1{1,})#', $str))
 			print_error(1);
-		if (preg_match('#([xX.*^=])(\1{1,})#', $str))
+		if (preg_match('#-\+|\+-|-\.|\.-|\+\.|\.\+|-\*|\*-|\+\*|\*\+#', $str))
+			print_error(1);
+		if (!preg_match('#=#', $str))
 			print_error(1);
 		if (preg_match_all('#=#', $str) > 1)
 			print_error(1);
@@ -25,6 +28,7 @@
 		if ($l[0] == '')
 			print_error(1);
 		$l = explode('|', $l);
+		print_r($l);
 		foreach($l as $elem)
 		{
 			if (preg_match('#[Xx]\^([0-9]+)#', $elem, $degree) || preg_match('#[xX]$#', $elem) || preg_match('#^[+\-]?([0-9].?)*$#', $elem) || $elem == '+' || $elem == '-' || $elem == '0')
@@ -64,6 +68,7 @@
 		if ($r[0] == '')
 			print_error(1);
 		$r = explode('|', $r);
+		print_r($r);
 		foreach($r as $elem)
 		{
 			if (preg_match('#[Xx]\^([0-9]+)#', $elem, $degree) || preg_match('#[xX]$#', $elem) || preg_match('#^[+\-]?([0-9].?)*$#', $elem) || $elem == '+' || $elem == '-' || $elem == '0')
