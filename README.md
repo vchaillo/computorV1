@@ -15,5 +15,3 @@
 
 ####Idees bonus
 - Affichage sous forme de fraction
-- Donner le module et l'argument de z1 et z2
-
