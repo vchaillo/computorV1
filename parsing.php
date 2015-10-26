@@ -28,7 +28,6 @@
 		if ($l[0] == '')
 			print_error(1);
 		$l = explode('|', $l);
-		#print_r($l);
 		foreach($l as $elem)
 		{
 			if (preg_match('#[Xx]\^([0-9]+)#', $elem, $degree) || preg_match('#[xX]$#', $elem) || preg_match('#^[+\-]?([0-9].?)*$#', $elem) || $elem == '+' || $elem == '-' || $elem == '0')
@@ -68,7 +67,6 @@
 		if ($r[0] == '')
 			print_error(1);
 		$r = explode('|', $r);
-		#print_r($r);
 		foreach($r as $elem)
 		{
 			if (preg_match('#[Xx]\^([0-9]+)#', $elem, $degree) || preg_match('#[xX]$#', $elem) || preg_match('#^[+\-]?([0-9].?)*$#', $elem) || $elem == '+' || $elem == '-' || $elem == '0')
@@ -109,12 +107,10 @@
 		if ($eq['b'] == 0 && $eq['degree'] == 1)
 			$eq['degree']--;
 
-		#solution de secours
 		#echo 'c = ' . $eq['c'] . PHP_EOL;
 		if (preg_match('#E#', $eq['c']))
 			$eq['c'] = 0;
 		
-		#print_r($eq);
 		return($eq);
 	}
 

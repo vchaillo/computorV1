@@ -17,6 +17,9 @@
 		echo "\033[0m" . PHP_EOL . 'Exemples :' . PHP_EOL;
 		echo './computor "5 * X^0 + 4 * X^1 - 9.3 * X^2 = 1 * X^0"' . PHP_EOL;
 		echo './computor "5 * X^0 + 4 * X^1 = 4 * X^0"' . PHP_EOL . PHP_EOL;
+		echo 'Also, you can use a simpler syntax :' . PHP_EOL;
+		echo './computor "5 + 4x - 9.3x^2 = 1"' . PHP_EOL;
+		echo './computor "5 + 4x = 4"' . PHP_EOL . PHP_EOL;
 		exit(0);
 	}
 

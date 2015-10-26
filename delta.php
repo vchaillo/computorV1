@@ -16,7 +16,7 @@
 			echo 'Discriminant is strictly negative, the two solutions are:';
 		else // d == 0
 			echo 'Discriminant is equal to zero, the solution is:';
-		echo "\n";
+		echo "\n\n";
 
 		return ($eq);
 	}
