@@ -30,6 +30,7 @@
 		$l = explode('|', $l);
 		foreach($l as $elem)
 		{
+			$degree = array();
 			if (preg_match('#[Xx]\^([0-9]+)#', $elem, $degree) || preg_match('#[xX]$#', $elem) || preg_match('#^[+\-]?([0-9].?)*$#', $elem) || $elem == '+' || $elem == '-' || $elem == '0')
 			{
 				if (preg_match('#[xX]$#', $elem))
@@ -46,20 +47,23 @@
 			else
 				print_error(1);
 
-			if ($degree[1] > $eq['degree'] && $coef != '0')
+			if ($degree && $degree[1] > $eq['degree'] && $coef != '0')
 					$eq['degree'] = $degree[1];
 
-			switch ($degree[1])
+			if ($degree)
 			{
-				case '2':
-					$eq['a'] += floatval($coef);
-					break;
-				case '1':
-					$eq['b'] += floatval($coef);
-					break;
-				case '0':
-					$eq['c'] += floatval($coef);
-					break;
+				switch ($degree[1])
+				{
+					case '2':
+						$eq['a'] += floatval($coef);
+						break;
+					case '1':
+						$eq['b'] += floatval($coef);
+						break;
+					case '0':
+						$eq['c'] += floatval($coef);
+						break;
+				}
 			}
 		}
 
@@ -85,20 +89,27 @@
 			else
 				print_error(1);
 				
-			if ($degree[1] > $eq['degree'] && $coef != '0')
+			if ($degree && $degree[1] > $eq['degree'] && $coef != '0')
 				$eq['degree'] = $degree[1];
 
-			switch ($degree[1])
+			if ($degree)
 			{
-				case '2':
-					$eq['a'] -= floatval($coef);
-					break;
-				case '1':
-					$eq['b'] -= floatval($coef);
-					break;
-				case '0':
-					$eq['c'] -= floatval($coef);
-					break;
+				switch ($degree[1])
+				{
+					case '2':
+						$eq['a'] -= floatval($coef);
+						break;
+					case '1':
+						$eq['b'] -= floatval($coef);
+						break;
+					case '0':
+						#echo "coef          => " . floatval($coef) . PHP_EOL;
+						#echo "eq['c']before => " . $eq['c'] . PHP_EOL;
+						#echo $eq['c'] . " -= " . floatval($coef) . PHP_EOL;
+						$eq['c'] -= floatval($coef);
+						#echo "eq['c']after  => " . $eq['c'] . PHP_EOL;
+						break;
+				}
 			}
 		}
 
@@ -106,7 +117,8 @@
 			$eq['degree']--;
 		if ($eq['b'] == 0 && $eq['degree'] == 1)
 			$eq['degree']--;
-
+		
+		#print_r($eq);
 		#echo 'c = ' . $eq['c'] . PHP_EOL;
 		if (preg_match('#E#', $eq['c']))
 			$eq['c'] = 0;
