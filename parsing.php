@@ -19,6 +19,8 @@
 			print_error(1);
 		if (!preg_match('#=#', $str))
 			print_error(1);
+		if (preg_match('#[-\+\*]$#', $str))
+			print_error(1);
 		if (preg_match_all('#=#', $str) > 1)
 			print_error(1);
 		$str = str_replace('+', '|+', $str);
@@ -30,6 +32,7 @@
 		$l = explode('|', $l);
 		foreach($l as $elem)
 		{
+			echo($elem);
 			$degree = array();
 			if (preg_match('#[Xx]\^([0-9]+)#', $elem, $degree) || preg_match('#[xX]$#', $elem) || preg_match('#^[+\-]?([0-9].?)*$#', $elem) || $elem == '+' || $elem == '-' || $elem == '0')
 			{
@@ -88,7 +91,7 @@
 			}
 			else
 				print_error(1);
-				
+
 			if ($degree && $degree[1] > $eq['degree'] && $coef != '0')
 				$eq['degree'] = $degree[1];
 
@@ -117,12 +120,12 @@
 			$eq['degree']--;
 		if ($eq['b'] == 0 && $eq['degree'] == 1)
 			$eq['degree']--;
-		
+
 		#print_r($eq);
 		#echo 'c = ' . $eq['c'] . PHP_EOL;
 		if (preg_match('#E#', $eq['c']))
 			$eq['c'] = 0;
-		
+
 		return($eq);
 	}
 
