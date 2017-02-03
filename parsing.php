@@ -32,7 +32,6 @@
 		$l = explode('|', $l);
 		foreach($l as $elem)
 		{
-			echo($elem);
 			$degree = array();
 			if (preg_match('#[Xx]\^([0-9]+)#', $elem, $degree) || preg_match('#[xX]$#', $elem) || preg_match('#^[+\-]?([0-9].?)*$#', $elem) || $elem == '+' || $elem == '-' || $elem == '0')
 			{
