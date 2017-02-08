@@ -1,14 +1,9 @@
 #ComputorV1
+* [Sujet] (https://github.com/vchaillo/computorv1/blob/master/computorv1.pdf)
+=============
 
-* [Subject] (https://github.com/vchaillo/computorv1/blob/master/computorv1.pdf)
+####Description
+Le but de ce projet est de vous faire (re)prendre contact avec la manipulation d’outils mathématiques élémentaires, qui pourront vous être utiles dans de nombreux autres sujets de 42. Il ne s’agit pas de "faire des maths pour faire des maths", mais bien de vous permettre d’aborder plus progressivement et sereinement les sujets où il y en a besoin. Vous êtes libres dans le choix de langage pour réaliser le sujet.
 
-####Equations a problemes
-
-```
-./computor "-2.1 - 2= -2.1 - 2"
-./computor "-42 + 2.1 = -42 + 2.1"
-./computor "5 + 3.3 = 5 + 3.3"
-./computor "4 + 4.8 = 4 + 4.8"
-./computor "4 = 4x 4x 4x"
-./computor "4 = 4. 4. 4. 4. 4x"
-```
+=============
+Projet de l'ecole 42
