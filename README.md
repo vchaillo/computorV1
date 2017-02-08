@@ -1,6 +1,7 @@
 #ComputorV1
 
 * [Sujet] (https://github.com/vchaillo/computorv1/blob/master/computorv1.pdf)
+
 =============
 ####Description
 
@@ -8,6 +9,8 @@ Le but de ce projet est de vous faire (re)prendre contact avec la manipulation d
 
 =============
 ####Utilisation
+
+Ce programme requiert l'installation de php
 
 ```
 ./computor "5 * X^0 + 4 * X^1 - 9.3 * X^2 = 1 * X^0"
