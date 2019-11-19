@@ -1,6 +1,6 @@
 # ComputorV1
 
-* [Sujet] (https://github.com/vchaillo/computorv1/blob/master/computorv1.pdf)
+* [Sujet](https://github.com/vchaillo/computorv1/blob/master/computorv1.pdf)
 
 ---------------
 ### Description
